@@ -1,5 +1,5 @@
-# Hereditary_disc_cup_seg
-Code to download publicly available datasets on disc and cup segmentation from Color Fundus Photos.
+# Hereditary Glaucoma
+Code to download the Chaksu dataset and train a ResNet-18 model to predict whether an image is suspicious of glaucoma or not.
 
 ## Dataset
 
