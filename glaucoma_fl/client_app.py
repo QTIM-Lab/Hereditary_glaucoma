@@ -7,12 +7,12 @@ from flwr.client import NumPyClient, ClientApp
 from glaucoma_fl.task import Net, get_weights, load_data, set_weights, test, train
 
 class FlowerClient(NumPyClient):
-    def __init__(self, net, trainloader, testloader, local_epochs):
+    def __init__(self, net, trainloader, testloader, local_epochs, device=None):
         self.net = net
         self.trainloader = trainloader
         self.testloader = testloader
         self.local_epochs = local_epochs
-        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu")
+        self.device = torch.device("cuda:0" if torch.cuda.is_available() else "cpu") if device is None else torch.device(device)
         self.net.to(self.device)
 
     def fit(self, parameters, config):
@@ -23,7 +23,7 @@ class FlowerClient(NumPyClient):
             self.local_epochs,
             self.device,
         )
-        print(results)
+        # print(results)
         return get_weights(self.net), len(self.trainloader.dataset), results
 
     def evaluate(self, parameters, config):
@@ -40,12 +40,13 @@ def client_fn(context: Context):
     labels_files = {'train': context.run_config["labels-folder-train"],
                     'test': context.run_config["labels-folder-test"]}
     batch_size = context.run_config["batch-size"]
+    device = context.node_config.get("device", None)
 
     trainloader, valloader = load_data(image_folders, labels_files, partition, batch_size)
     local_epochs = context.run_config["local-epochs"]
 
     # Return Client instance
-    return FlowerClient(net, trainloader, valloader, local_epochs).to_client()
+    return FlowerClient(net, trainloader, valloader, local_epochs, device).to_client()
 
 # Flower ClientApp
 app = ClientApp(client_fn)

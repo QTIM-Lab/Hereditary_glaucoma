@@ -56,7 +56,7 @@ def train(net, trainloader, epochs, device):
     optimizer = torch.optim.SGD(net.parameters(), lr=0.01, momentum=0.9) # extension - these hyperparameters could come from configuration
     net.train()
     running_loss = 0.0
-    for _ in range(epochs):
+    for epoch_n in range(epochs):
         for batch in trainloader:
             images = batch["img"]
             labels = batch["label"].float()
