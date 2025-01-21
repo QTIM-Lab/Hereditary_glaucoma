@@ -10,7 +10,9 @@ Available to download as a zip file (10.5 GB) at
 > https://figshare.com/articles/dataset/Ch_k_u_A_glaucoma_specific_fundus_image_database/20123135
 
 Download with
-`wget https://figshare.com/ndownloader/articles/20123135/versions/2`
+```
+wget https://figshare.com/ndownloader/articles/20123135/versions/2
+```
 
 This dataset includes images from three devices: Bosch, Forus, and Remidio.
 
@@ -36,14 +38,24 @@ Change the path to the data folder in the `pyproject.toml` file as well as the p
 File `requirements.txt` contains all the dependencies.
 
 ### Start the superlink
-> flower-superlink --insecure
+```
+flower-superlink --insecure
+```
 
 ### Start the nodes (clients)
-> flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9094 --node-config "partition='Bosch'"
+```
+flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9094 --node-config "partition='Bosch'"
+```
 
-> flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9095 --node-config "partition='Forus'"
+```
+flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9095 --node-config "partition='Forus'"
+```
 
-> flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9096 --node-config "partition='Remidio'"
+```
+flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9096 --node-config "partition='Remidio'"
+```
 
 ### Run the experiment
-> flwr run . local-deployment --stream
+```
+flwr run . local-deployment --stream
+```
