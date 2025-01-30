@@ -35,10 +35,10 @@ def client_fn(context: Context):
     # Load model and data
     net = Net()
     partition = context.node_config["partition"]
-    image_folders = {'train': context.run_config["image-folder-train"],
-                    'test': context.run_config["image-folder-test"]}
-    labels_files = {'train': context.run_config["labels-folder-train"],
-                    'test': context.run_config["labels-folder-test"]}
+    image_folders = {'train': context.node_config["image-folder-train"],
+                    'test': context.node_config["image-folder-test"]}
+    labels_files = {'train': context.node_config["labels-folder-train"],
+                    'test': context.node_config["labels-folder-test"]}
     batch_size = context.run_config["batch-size"]
     device = context.node_config.get("device", None)
 

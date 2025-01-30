@@ -44,15 +44,15 @@ flower-superlink --insecure
 
 ### Start the nodes (clients)
 ```
-flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9094 --node-config "partition='Bosch'"
+flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9094 --node-config "partition='Bosch' image-folder-train='<<PATH TO CHAKSU>>/Train/1.0_Original_Fundus_Images' labels-folder-train='<<PATH TO CHAKSU>>/Train/6.0_Glaucoma_Decision/Glaucoma_Decision_Comparison_{}_majority.csv' image-folder-test='<<PATH TO CHAKSU>>/Test/1.0_Original_Fundus_Images' labels-folder-test='<<PATH TO CHAKSU>>/Test/6.0_Glaucoma_Decision/Glaucoma_Decision_Comparison_{}_majority.csv'"
 ```
 
 ```
-flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9095 --node-config "partition='Forus'"
+flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9095 --node-config "partition='Forus' image-folder-train='<<PATH TO CHAKSU>>/Train/1.0_Original_Fundus_Images' labels-folder-train='<<PATH TO CHAKSU>>/Train/6.0_Glaucoma_Decision/Glaucoma_Decision_Comparison_{}_majority.csv' image-folder-test='<<PATH TO CHAKSU>>/Test/1.0_Original_Fundus_Images' labels-folder-test='<<PATH TO CHAKSU>>/Test/6.0_Glaucoma_Decision/Glaucoma_Decision_Comparison_{}_majority.csv'"
 ```
 
 ```
-flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9096 --node-config "partition='Remidio'"
+flower-supernode --insecure --superlink 127.0.0.1:9092 --clientappio-api-address 127.0.0.1:9096 --node-config "partition='Remidio' image-folder-train='<<PATH TO CHAKSU>>/Train/1.0_Original_Fundus_Images' labels-folder-train='<<PATH TO CHAKSU>>/Train/6.0_Glaucoma_Decision/Glaucoma_Decision_Comparison_{}_majority.csv' image-folder-test='<<PATH TO CHAKSU>>/Test/1.0_Original_Fundus_Images' labels-folder-test='<<PATH TO CHAKSU>>/Test/6.0_Glaucoma_Decision/Glaucoma_Decision_Comparison_{}_majority.csv'"
 ```
 
 ### Run the experiment

@@ -82,8 +82,8 @@ def server_fn(context: Context):
         out_folder,
         fraction_fit=1.0,
         fraction_evaluate=1.0,
-        min_available_clients=3, # require all three devices (clients) to be available - can change it
-        min_fit_clients=3,
+        min_available_clients=2, # require all three devices (clients) to be available - can change it
+        min_fit_clients=2,
         evaluate_metrics_aggregation_fn=weighted_average,
         initial_parameters=parameters
     )
